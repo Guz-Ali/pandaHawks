@@ -5,7 +5,7 @@ public class Profile {
 	private int points;
 	private int freePasses;
 	private int ridePointValue;
-	private boolean riddenToday;
+	private boolean rodeToday;
 	private boolean newFreePass;
 	
 	public Profile(int sh, String n) {
@@ -14,7 +14,7 @@ public class Profile {
 		points = 0;
 		freePasses = 0;
 		ridePointValue = 0;
-		riddenToday = false;
+		rodeToday = false;
 		newFreePass = false;
 	}
 	
@@ -39,7 +39,7 @@ public class Profile {
 	}
 	
 	public boolean hasRiddenToday() {
-		return riddenToday;
+		return rodeToday;
 	}
 	
 	public boolean hasNewFreePass() {
@@ -52,7 +52,7 @@ public class Profile {
 	
 	public void ride(double pointMultiplier, int freeRidePoints) {
 		points += (ridePointValue * pointMultiplier);
-		riddenToday = true;
+		rodeToday = true;
 		if (points >= freeRidePoints) {
 			points = points - freeRidePoints;
 			freePasses++;
