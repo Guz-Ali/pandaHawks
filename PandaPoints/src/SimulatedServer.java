@@ -6,6 +6,7 @@ public class SimulatedServer {
 	private int pointsForFreePass;
 	private int timeLeftInDay;
 	private int pointsMultiplier;
+	private boolean rodeToday;
 		
 	public SimulatedServer() {
 		profileHT = new Hashtable();
