@@ -3,15 +3,15 @@ import java.util.*;
 public class SimulatedServer {
 		
 	private Hashtable profileHT;
-	private int pointsForFreePass;
+	private int freeRidePoints;
 	private int timeLeftInDay;
 	private int pointsMultiplier;
 	private boolean rodeToday;
-	private Integer streak;
+	int streak;
 		
 	public SimulatedServer() {
 		profileHT = new Hashtable();
-		pointsForFreePass = 150;
+		freeRidePoints = 500;
 		pointsMultiplier = 1;
 	}
 	
@@ -38,7 +38,7 @@ public class SimulatedServer {
 		if (p != null) {
 			return p.getFreePasses();
 		} else {
-			return null;
+			return 0;
 		}
 	}
 	
@@ -47,28 +47,34 @@ public class SimulatedServer {
 		if (p != null) {
 			return p.getPoints();
 		} else {
-			return null;
+			return 0;
 		}
 	}
 	
 	public void ride(String username, String password) {
 		Profile p = getProfile(username, password);
-		p.ride(pointsMultiplier, pointsForFreePass);
+		p.ride(pointsMultiplier, freeRidePoints);
 	}
 	
 	public void createProfile(String username, String password, String name) {
 		profileHT.createProfile(username + password, name);
 	}
 	
-	public int getStreak(boolean checkDate){
-		Date date1 = new Date();
+	public int getStreak(boolean checkDate, String username, String password){
+		Profile p = getProfile(username, password);
+		if (p != null) {
+			Date date1 = new Date();
 		String myDate1 = date1.toString();
 		String str1 = myDate1.substring(0,3);
 
 		while(checkDate == true){				// So we can only run this when necessary
-									// Server can utilize this at end of a day
+												// Server can utilize this at end of a day
 
-		long a = System.currentTimeMillis();	
+
+
+
+
+			long a = System.currentTimeMillis();	
     		long b = System.currentTimeMillis();		// Wait 10 seconds between checks to reduce spam
     		while ((b - a) <= 10000)			//
     		{
@@ -103,6 +109,41 @@ public class SimulatedServer {
 		}
 		return streak;	
 				}
+
+		else {
+			return 0;
+		}
+	}
+
+		
+
+
+
+		/*public int addPoints(boolean checkDate, String username, String password){
+		Profile p = getProfile(username, password);
+		if (p != null) {
+			return p.addPoints();
+		} else {
+			return 0;
+		}
+
+		if(streak == 0){
+			points = points + 2;
+		}
+		else if(streak == 1){
+			points = points + 5;
+		}
+		else if(streak == 2){
+			points = points + 10;
+		}
+		else if(streak >= 3){
+			points = points + 25;
+		}
+		else{
+			return 0;
+		}
+*/
+
 
 	
 }
