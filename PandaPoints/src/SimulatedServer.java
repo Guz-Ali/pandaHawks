@@ -7,7 +7,7 @@ public class SimulatedServer {
 	private int timeLeftInDay;
 	private int pointsMultiplier;
 	private boolean rodeToday;
-	int streak;
+	private Integer streak;
 		
 	public SimulatedServer() {
 		profileHT = new Hashtable();
