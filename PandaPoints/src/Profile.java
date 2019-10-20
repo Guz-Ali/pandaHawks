@@ -5,8 +5,9 @@ public class Profile {
 	private int points;
 	private int freePasses;
 	private int ridePointValue;
-	private boolean rodeToday;
+	private boolean riddenToday;
 	private boolean newFreePass;
+	private int streak;
 	
 	public Profile(int sh, String n) {
 		securityHash = sh;
@@ -14,8 +15,9 @@ public class Profile {
 		points = 0;
 		freePasses = 0;
 		ridePointValue = 0;
-		rodeToday = false;
+		riddenToday = false;
 		newFreePass = false;
+		streak = 0;
 	}
 	
 	public int getSecurityHash() {
@@ -39,7 +41,7 @@ public class Profile {
 	}
 	
 	public boolean hasRiddenToday() {
-		return rodeToday;
+		return riddenToday;
 	}
 	
 	public boolean hasNewFreePass() {
@@ -50,9 +52,18 @@ public class Profile {
 		newFreePass = false;
 	}
 	
+	public int getStreak() {
+		return streak;
+	}
+	
+	public void resetStreak() {
+		streak = 0;
+	}
+	
 	public void ride(double pointMultiplier, int freeRidePoints) {
 		points += (ridePointValue * pointMultiplier);
-		rodeToday = true;
+		riddenToday = true;
+		streak++;
 		if (points >= freeRidePoints) {
 			points = points - freeRidePoints;
 			freePasses++;
