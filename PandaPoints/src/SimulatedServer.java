@@ -99,7 +99,7 @@ public class SimulatedServer {
 		System.out.println(streak); 		// Print out the streak
 		
 		//if(str1 != str2)
-		checkDate = true;
+		checkDate = false;
 		}
 		return streak;	
 				}
