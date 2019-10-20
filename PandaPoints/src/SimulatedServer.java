@@ -85,7 +85,7 @@ public class SimulatedServer {
 		String myDate2 = date2.toString();
 		String str2 = myDate2.substring(0,3);
 
-		System.out.println(str2);
+		System.out.println("Today is: "+str2);
 
 		if(!(str1.equals(str2))){ 			// If the day changes, either reset streak or increment streak!
 			if(rodeToday){
@@ -102,7 +102,7 @@ public class SimulatedServer {
 			
 
 		}
-		System.out.println(streak); 		// Print out the streak
+	//	System.out.println(streak); 		// Print out the streak
 		
 		//if(str1 != str2)
 		checkDate = false;
@@ -114,36 +114,4 @@ public class SimulatedServer {
 			return 0;
 		}
 	}
-}
-		
-
-
-
-		/*public int addPoints(boolean checkDate, String username, String password){
-		Profile p = getProfile(username, password);
-		if (p != null) {
-			return p.addPoints();
-		} else {
-			return 0;
-		}
-
-		if(streak == 0){
-			points = points + 2;
-		}
-		else if(streak == 1){
-			points = points + 5;
-		}
-		else if(streak == 2){
-			points = points + 10;
-		}
-		else if(streak >= 3){
-			points = points + 25;
-		}
-		else{
-			return 0;
-		}
-*/
-
-
-	
 }
