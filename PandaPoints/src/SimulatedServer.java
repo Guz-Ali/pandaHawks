@@ -53,6 +53,11 @@ public class SimulatedServer {
 		Profile p = getProfile(username, password);
 		p.ride(pointsMultiplier, pointsForFreePass);
 	}
+	
+	public void createProfile(String username, String password, String name) {
+		profileHT.createProfile(username + password, name);
+	}
+	
 	public int getStreak(boolean checkDate){
 		while(checkDate == true){				// So we can only run this when necessary
 									// Server can utilize this at end of a day
