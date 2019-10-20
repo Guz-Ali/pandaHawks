@@ -55,11 +55,11 @@ public class SimulatedServer {
 	}
 	public int getStreak(boolean checkDate){
 		while(checkDate == true){				// So we can only run this when necessary
-												// Server can utilize this at end of a day
+									// Server can utilize this at end of a day
 
-			long a = System.currentTimeMillis();	
-    		long b = System.currentTimeMillis();	// Wait 10 seconds between checks to reduce spam
-    		while ((b - a) <= 10000)				//
+		long a = System.currentTimeMillis();	
+    		long b = System.currentTimeMillis();		// Wait 10 seconds between checks to reduce spam
+    		while ((b - a) <= 10000)			//
     		{
         		b = System.currentTimeMillis();		//
     		}
@@ -70,7 +70,7 @@ public class SimulatedServer {
 
 		System.out.println(str2);
 
-		if(!(str1.equals(str2))){ // If the day changes, either reset streak or increment streak!
+		if(!(str1.equals(str2))){ 			// If the day changes, either reset streak or increment streak!
 			if(rodeToday){
 				streak++;
 				rodeToday = false;
@@ -80,12 +80,12 @@ public class SimulatedServer {
 			}
 
 			
-			str1 = str2; // Set str 1 to str2 so that you can compare it to a new date
-						 // (STR 2 will be reprinted from the computer's clock)
+			str1 = str2; 			// Set str 1 to str2 so that you can compare it to a new date
+						 	// (STR 2 will be reprinted from the computer's clock)
 			
 
 		}
-		System.out.println(streak); // Print out the streak
+		System.out.println(streak); 		// Print out the streak
 		
 		//if(str1 != str2)
 		checkDate = true;
