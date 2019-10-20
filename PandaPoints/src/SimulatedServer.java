@@ -7,6 +7,7 @@ public class SimulatedServer {
 	private int timeLeftInDay;
 	private int pointsMultiplier;
 	private boolean rodeToday;
+	int streak;
 		
 	public SimulatedServer() {
 		profileHT = new Hashtable();
@@ -60,6 +61,10 @@ public class SimulatedServer {
 	}
 	
 	public int getStreak(boolean checkDate){
+		Date date1 = new Date();
+		String myDate1 = date1.toString();
+		String str1 = myDate1.substring(0,3);
+
 		while(checkDate == true){				// So we can only run this when necessary
 									// Server can utilize this at end of a day
 
@@ -72,7 +77,7 @@ public class SimulatedServer {
 
 		Date date2 = new Date();
 		String myDate2 = date2.toString();
-		str2 = myDate2.substring(0,3);
+		String str2 = myDate2.substring(0,3);
 
 		System.out.println(str2);
 
@@ -95,8 +100,8 @@ public class SimulatedServer {
 		
 		//if(str1 != str2)
 		checkDate = true;
-		return streak;
-		}	
+		}
+		return streak;	
 				}
 
 	
