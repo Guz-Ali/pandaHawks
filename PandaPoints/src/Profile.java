@@ -14,7 +14,7 @@ public class Profile {
 		name = n;
 		points = 0;
 		freePasses = 0;
-		ridePointValue = 0;
+		ridePointValue = 1;
 		riddenToday = false;
 		newFreePass = false;
 		streak = 0;
@@ -52,7 +52,7 @@ public class Profile {
 		newFreePass = false;
 	}
 	
-	public int getStreak() {
+	public int theStreak() {
 		return streak;
 	}
 	
@@ -61,9 +61,28 @@ public class Profile {
 	}
 	
 	public void ride(double pointMultiplier, int freeRidePoints) {
-		points += (ridePointValue * pointMultiplier);
+		
+		
+		if(streak == 0){
+			points = points + 2;
+		}
+		else if(streak == 1){
+			points = points + 5;
+		}
+		else if(streak == 2){
+			points = points + 10;
+		}
+		else if(streak >= 3){
+			points = points + 25;
+		}
+		else{
+			points = points + 1 - 1;
+		}
+
+		
+		//points += (ridePointValue * pointMultiplier);
 		riddenToday = true;
-		streak++;
+		//streak++;
 		if (points >= freeRidePoints) {
 			points = points - freeRidePoints;
 			freePasses++;
